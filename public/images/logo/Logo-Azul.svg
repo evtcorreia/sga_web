@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Camada_1" data-name="Camada 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 811.27 354.93">
+  <defs>
+    <style>
+      .cls-1 {
+        letter-spacing: 0em;
+      }
+
+      .cls-2 {
+        letter-spacing: -.04em;
+      }
+
+      .cls-3 {
+        fill: #22376d;
+        font-family: Impact, Impact;
+        font-size: 146.31px;
+      }
+    </style>
+  </defs>
+  <text class="cls-3" transform="translate(352.64 130.99) scale(.46 1)"><tspan x="0" y="0">SGA</tspan><tspan x="-767.25" y="175.57">SISTEMA DE GES</tspan><tspan class="cls-2" x="143.99" y="175.57">T</tspan><tspan class="cls-1" x="205.57" y="175.57">ÃO DE ALUNOS</tspan></text>
+</svg>

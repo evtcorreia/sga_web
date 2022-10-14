@@ -1,0 +1,11 @@
+export default function getMenuSecretaria(){
+
+    const menu = [
+        {
+            "nome": "Inicio",
+            "link": "/home"
+        }
+    ]
+    return menu;
+
+}
