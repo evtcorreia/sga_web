@@ -1,2 +1,2 @@
-import AlunosPorSala from "./[alunos-em-sala]";
+import AlunosPorSala from "./[alunos]";
 export default AlunosPorSala
