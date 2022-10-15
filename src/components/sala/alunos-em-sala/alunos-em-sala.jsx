@@ -13,9 +13,10 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import Link from 'next/link';
 
-export default function SalaComponent() {
+export default function AlunosSalaComponent() {
 
-    const [salas, setSalas] = useState([])
+    const [alunos, setAlunos] = useState([])
+    const[sala, setSala] = useState('')
 
     const TOKEN = nookies.get('TOKEN_IRIS_CLIENT')
 
@@ -24,10 +25,13 @@ export default function SalaComponent() {
     const url = process.env.URL_PRODUCAO
 
     const router = useRouter(); 
+    
+
+    
 
     useEffect(() => {
 
-        axios.get(`${url}v1/salas`, {
+        axios.get(`${url}v1/aluno/sala/${router.query.alunos}`, {
             headers: {
 
                 'Authorization': TOKEN_IRIS_CLIENT
@@ -35,7 +39,7 @@ export default function SalaComponent() {
         })
             .then(res => {
 
-                setSalas(res.data)
+                setAlunos(res.data)
             })
             .catch((erro) => {
 
@@ -74,45 +78,9 @@ export default function SalaComponent() {
                     {
                         color: "#002F78"
                     }
-                }>Sala de Aula</Typography>
+                }>Sala de aula {router.query.alunos}</Typography>
             </Box>
-            <Box
-
-                height='1vh'
-                width='80vw'
-                sx={
-                    {
-
-                        background: "#F8F8F8",
-                        marginTop: "2vw"
-                    }
-                }
-            ></Box>
-
-            <Box sx={
-                {
-                    color: "black",
-
-                    textAlign: 'left'
-
-                }
-            }>
-                <Button
-                onClick={()=>{
-                    router.push('/salas-de-aula/criar');
-                }} 
-                
-                sx={
-                    {
-                        background: '#002F78',
-                        color: "#ffffff",
-                        marginLeft: "2vw",
-                        marginTop: "2vh"
-
-                    }
-                }>NOVA SALA</Button>
-            </Box>
-
+            
             <Box sx={
                 {
                     color: "black",
@@ -136,7 +104,7 @@ export default function SalaComponent() {
                                 border:'none'
                             }
                         }>
-                            {salas.map((row, key) => (
+                            {alunos.map((row, key) => (
                                 <TableRow
                                     key={key}
                                     sx={
@@ -155,7 +123,7 @@ export default function SalaComponent() {
                                         }
                                     }>
 
-                                        Sala: {row.numero}
+                                        {row.nome}
 
                                     </TableCell>
                                     <TableCell align="left" sx={
@@ -163,17 +131,11 @@ export default function SalaComponent() {
                                             border:'none'
                                         }
                                     }>
+                                        {row.Aluno.Matricula.id}
 
-                                   
                                     </TableCell>
 
-                                    <Link href={"/salas-de-aula/alunos-por-sala/"+row.id}><Button sx={
-                                        {
-                                            background:'#002F78',
-                                            color:'#ffffff'
-                                        }
-                                    }>Entrar na sala</Button></Link>
-
+                                   
 
                                 </TableRow >
                             ))}

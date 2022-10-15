@@ -29,19 +29,25 @@ export default function Menu(){
   
         const TOKEN_IRIS_CLIENT = TOKEN.TOKEN_IRIS_CLIENT
         
-
-        const chaveDecodificada = jwt.decode(TOKEN_IRIS_CLIENT);
+        
+       
+         const chaveDecodificada = jwt.decode(TOKEN_IRIS_CLIENT);
 
         
+        if(chaveDecodificada == null){
 
+            router.push('/')
 
-        if(chaveDecodificada.autorizacao === 1){
+        }else if(chaveDecodificada.autorizacao === 1){
+                          
+                setResult(getMenuSecretaria())
+        }else if(chaveDecodificada.autorizacao === 2){
 
-            
-            setResult(getMenuSecretaria())
-        }else{
             setResult(getMenuProfessor())
-        }         
+
+        }else{
+            router.push('/')      
+    } 
 
     }, [])
 
