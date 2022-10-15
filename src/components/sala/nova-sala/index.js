@@ -1,2 +1,2 @@
-import NovaSalaComponent from "./novaSala";
+import NovaSalaComponent from "./NovaSala";
 export default NovaSalaComponent;
