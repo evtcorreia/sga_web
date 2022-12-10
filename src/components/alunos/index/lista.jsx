@@ -17,6 +17,9 @@ import Link from 'next/link';
 
 export default function ListaAlunos({ alunos }) {
 
+
+    const router = useRouter()
+
     console.log(alunos);
 
     return (
@@ -69,7 +72,7 @@ export default function ListaAlunos({ alunos }) {
             }>
                 <Button
                     onClick={() => {
-                        router.push('/alunos/cadstra');
+                        router.push('/alunos/cadastra');
                     }}
 
                     sx={
@@ -106,7 +109,13 @@ export default function ListaAlunos({ alunos }) {
                                 border: 'none'
                             }
                         }>
+                            
                             {alunos.map((row, key) => (
+
+
+                                 
+                                
+
                                 <TableRow
                                     key={key}
                                     sx={
@@ -125,7 +134,7 @@ export default function ListaAlunos({ alunos }) {
                                         }
                                     }>
 
-                                        <Link href={"/aluno/info" + row.id}><Button sx={
+                                        <Link href={"/alunos/info/" + row.id}><Button sx={
                                             {
                                                 //background:'#002F78',
                                                 color: '#002F78'
@@ -153,7 +162,7 @@ export default function ListaAlunos({ alunos }) {
                                             //background:'#002F78',
                                             color: '#002F78'
                                         }
-                                    }>{row.Matricula.Turma.Series.serie}{row.Matricula.Turma.identificador}</Button></Link>
+                                    }> {row.Matricula.Turma.Series.serie}{row.Matricula.Turma.identificador} </Button></Link>
 
 
                                 </TableRow >
