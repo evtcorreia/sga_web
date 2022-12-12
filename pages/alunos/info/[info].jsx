@@ -66,10 +66,10 @@ consulta()
 async function consulta(){
 
   const id =  router.query.info 
-  const res =  await fetch(`${url}v1/aluno/1`);
+  const res =  await fetch(`${url}v1/aluno/${id}`);
   const data = await  res.json()
   console.log(data);
-  setTimeout(()=>{
+ // setTimeout(()=>{
 
     setNome(data.Pessoa.nome),
     set_dtNascimento(data.Pessoa.dt_nascimento),
@@ -77,16 +77,18 @@ async function consulta(){
     setLogradouro(data.Pessoa.Endereco.logradouro),
     setNumero(data.Pessoa.Endereco.numero),
     setComplemento(data.Pessoa.Endereco.complemento)
+
     setIdentificadorTurma(data.Matricula.Turma.identificador)
     setSerie(data.Matricula.Turma.Series.serie)
+   
 
 
-  },"1000")
+ // },"1000")
 
 
 }
     
-    //console.log(alunoRes);
+    
     
 
     return(

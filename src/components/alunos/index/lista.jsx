@@ -109,12 +109,12 @@ export default function ListaAlunos({ alunos }) {
                                 border: 'none'
                             }
                         }>
-                            
+
                             {alunos.map((row, key) => (
 
 
-                                 
-                                
+
+
 
                                 <TableRow
                                     key={key}
@@ -134,36 +134,72 @@ export default function ListaAlunos({ alunos }) {
                                         }
                                     }>
 
-                                        <Link href={"/alunos/info/" + row.id}><Button sx={
-                                            {
-                                                //background:'#002F78',
-                                                color: '#002F78'
-                                            }
-                                        }>
 
-                                            {row.Pessoa.nome}{row.Pessoa.sobrenome}
+                                        {row.Matricula == null ?
 
-                                        </Button></Link>
+
+
+
+                                            <Typography sx={{ color: "red" }}>
+
+                                                {row.Pessoa.nome}
+
+                                            </Typography>
+
+
+
+
+
+
+                                            :
+
+
+
+                                            <Link href={"/alunos/info/" + row.id}><Button sx={
+                                                {
+                                                    //background:'#002F78',
+                                                    color: '#002F78'
+                                                }
+                                            }>
+
+                                                {row.Pessoa.nome}{row.Pessoa.sobrenome}
+
+                                            </Button></Link>
+
+                                        }
+
+
 
                                     </TableCell>
                                     <TableCell align="left" sx={
                                         {
                                             border: 'none'
                                         }
-                                        
+
                                     }>
-                                         
+
 
 
                                     </TableCell>
 
-                                    <Link href={"/salas-de-aula/alunos-por-sala/" + row.id}><Button sx={
-                                        {
-                                            //background:'#002F78',
-                                            color: '#002F78'
-                                        }
-                                    }> {row.Matricula.Turma.Series.serie}{row.Matricula.Turma.identificador} </Button></Link>
 
+                                    {row.Matricula == null ?
+
+                                        <Link href={"/alunos/matricula/" + row.id}>
+
+                                            Matricular Aluno
+
+
+                                        </Link>
+
+
+                                        :
+
+
+                                        row.Matricula.Turma.Series.serie + row.Matricula.Turma.identificador
+
+
+                                    }
 
                                 </TableRow >
                             ))}

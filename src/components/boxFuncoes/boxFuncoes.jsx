@@ -16,7 +16,9 @@ export default function BoxFuncoes({ aluno }) {
             }}>
 
             <Box sx={{textAlign:"left", marginLeft:"2vw"}}>
-                <Typography sx={{color:'#002F78' }}>{aluno.serie}º {aluno.identificadorTurma}</Typography>
+
+                
+                <Typography sx={{color:'#002F78' }}>{aluno.serie}º {aluno.identificadorTurma} </Typography>
             </Box>
         <Box sx={
             {
