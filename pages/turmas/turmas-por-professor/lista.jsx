@@ -1,38 +1,37 @@
+import React from "react";
 import { useEffect, useState } from "react";
 import Menu from "../../../src/components/menu-lateral";
-import AlunosSalaComponent from "../../../src/components/sala/alunos-em-sala";
-
-import nookies from 'nookies'
-import axios from 'axios';
-import {useRouter} from "next/router";
-
 import { Container, Input, Button, Box } from '@mui/material';
+import axios from 'axios';
+import nookies from 'nookies'
+import {useRouter} from "next/router";
+import ListaTurmasComponent from "../../../src/components/turmas/listaTurmas";
 
-export default function AlunosPorSala(){
+export default function ListaTurmasProfessor(){
 
-    /*const [menu, setMenu] = useState(Array<object>);
-    //useEffect(()=>{
-        setMenu(getMenu());
-    //},[])*/
-
-    const [alunos, setAlunos] = useState([])
-    const[sala, setSala] = useState('')
-
+ 
+    
+    
+   
+    
     const TOKEN = nookies.get('TOKEN_IRIS_CLIENT')
-
+    
     const TOKEN_IRIS_CLIENT = TOKEN.TOKEN_IRIS_CLIENT
+    
+ 
+    
 
     const url = process.env.URL_PRODUCAO
 
     const router = useRouter(); 
-    
-   
 
-    
+    const [turmas, setTurmas] = useState([])
 
-    useEffect(() => {
+    //const id = router.query.lista
 
-        axios.get(`${url}v1/aluno/turma/${router.query.alunos}`, {
+    useEffect(()=>{
+
+        axios.get(`${url}v1/turmas/professores`, {
             headers: {
 
                 'Authorization': TOKEN_IRIS_CLIENT
@@ -40,7 +39,7 @@ export default function AlunosPorSala(){
         })
             .then(res => {
 
-                setAlunos(res.data)
+                setTurmas(res.data)
             })
             .catch((erro) => {
 
@@ -50,13 +49,7 @@ export default function AlunosPorSala(){
 
             })
 
-
-    }, [alunos])
-
-    
-    
-    
-    
+    })
 
     return(
 
@@ -70,14 +63,14 @@ export default function AlunosPorSala(){
             }
         }>
 
-            <Menu />
-            <AlunosSalaComponent alunos = {alunos} /> 
+          <Menu/>
+          <ListaTurmasComponent turmas = {turmas}/>
+             
             
 
 
         </Box>
+
+
     )
 }
-
-
-

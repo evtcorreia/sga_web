@@ -72,7 +72,7 @@ export default function NovaSalaComponent() {
         })
         .catch((erro)=>{
 
-            console.log(erro);
+           
 
         })
 

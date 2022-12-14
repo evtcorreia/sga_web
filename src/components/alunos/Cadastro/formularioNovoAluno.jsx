@@ -27,7 +27,7 @@ export default function FormularioNovoAluno() {
 
     function gravaAluno(){
 
-        console.log(TOKEN_IRIS_CLIENT);
+       
         
 
         var postData = {
@@ -55,7 +55,7 @@ export default function FormularioNovoAluno() {
           })
           .catch((err) => {
             console.log("AXIOS ERROR coletado: ", err);
-            console.log('deu errado');
+            
           })
 
 
@@ -99,7 +99,7 @@ export default function FormularioNovoAluno() {
                 <Input 
                     onChange={(e)=>{
                         setNome(e.target.value)
-                        console.log(nome);
+                        
                     }}
                     value={nome}
                     id="my-input" aria-describedby="my-helper-text" />

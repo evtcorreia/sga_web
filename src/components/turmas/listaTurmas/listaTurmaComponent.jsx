@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 import nookies from 'nookies'
 import axios from 'axios';
-import {useRouter} from "next/router";
+import { useRouter } from "next/router";
 import { Box, Button, Typography } from "@mui/material";
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -13,11 +13,25 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import Link from 'next/link';
 
-export default function AlunosSalaComponent({alunos}) {
-    
+import  jwt  from "jsonwebtoken";
+
+export default function ListaTurmasComponent({ turmas }) {
+
+    const [salas, setSalas] = useState([])
+
+    const TOKEN = nookies.get('TOKEN_IRIS_CLIENT')
+
+    const TOKEN_IRIS_CLIENT = TOKEN.TOKEN_IRIS_CLIENT
+
+    const url = process.env.URL_PRODUCAO
+
+    const router = useRouter();
 
 
-    const router  = useRouter()
+
+
+    const chaveDecodificada = jwt.decode(TOKEN_IRIS_CLIENT);
+
 
     return (
 
@@ -45,33 +59,81 @@ export default function AlunosSalaComponent({alunos}) {
                     {
                         color: "#002F78"
                     }
-                }>Sala de aula {router.query.alunos}</Typography>
+                }>Turmas</Typography>
             </Box>
-            
+            <Box
+
+                height='1vh'
+                width='80vw'
+                sx={
+                    {
+
+                        background: "#F8F8F8",
+                        marginTop: "2vw"
+                    }
+                }
+            ></Box>
+
+            <Box sx={
+                {
+                    color: "black",
+
+                    textAlign: 'left'
+
+                }
+            }>
+
+                {chaveDecodificada.autorizacao === 1 ?
+
+                    <Button
+                        onClick={() => {
+                            router.push('/turmas/cadastro');
+                        }}
+
+                        sx={
+                            {
+                                background: '#002F78',
+                                color: "#ffffff",
+                                marginLeft: "2vw",
+                                marginTop: "2vh"
+
+                            }
+                        }>NOVA TURMA</Button>
+
+                    :
+
+                    ""
+
+
+
+                }
+
+            </Box>
+
             <Box sx={
                 {
                     color: "black",
                     marginTop: '4vw',
                     textAlign: 'left',
-                   
-                    
+
+
 
                 }
             }>
 
                 <TableContainer component={Paper} sx={
                     {
-                        marginLeft:'0vw'
+                        marginLeft: '0vw'
                     }
                 }>
-                    <Table sx={{ minWidth: 100, border:'none' }} size="" aria-label="a dense table">
-                        
+                    <Table sx={{ minWidth: 100, border: 'none' }} size="" aria-label="a dense table">
+
                         <TableBody sx={
                             {
-                                border:'none'
+                                border: 'none'
                             }
                         }>
-                            {alunos.map((row, key) => (
+                            {turmas.map((row, key) => (
                                 <TableRow
                                     key={key}
                                     sx={
@@ -79,30 +141,36 @@ export default function AlunosSalaComponent({alunos}) {
                                             '&:last-child td, &:last-child th': { border: 0 },
                                             display: 'flex',
                                             justifyContent: "space-between",
-                                            borderBottom:"solid #f8f8f8 8px"
-                                            
+                                            borderBottom: "solid #f8f8f8 8px"
+
                                         }
                                     }
                                 >
                                     <TableCell component="th" scope="row" sx={
                                         {
-                                            border:'none'
+                                            border: 'none'
                                         }
                                     }>
 
-                                        {row.Pessoa.nome}
+                                        {row.Series.serie}º {row.identificador}
 
                                     </TableCell>
                                     <TableCell align="left" sx={
                                         {
-                                            border:'none'
+                                            border: 'none'
                                         }
                                     }>
-                                        Matricula: {row.Matricula.id} 
+
 
                                     </TableCell>
 
-                                   
+                                    {<Link href={"/salas-de-aula/alunos-por-sala/" + row.id}><Button sx={
+                                        {
+                                            background: '#002F78',
+                                            color: '#ffffff'
+                                        }
+                                    }>Entrar na sala</Button></Link>}
+
 
                                 </TableRow >
                             ))}
@@ -118,34 +186,3 @@ export default function AlunosSalaComponent({alunos}) {
         </Box>
     )
 }
-
-
-export async function getStaticProps() {
-
-
-
-    let alunos = teste 
-    axios.get(`${url}v1/aluno/sala/${router.query.alunos}`, {
-        headers: {
-
-            'Authorization': TOKEN_IRIS_CLIENT
-        }
-    })
-        .then(res => {
-
-          
-      
-        })
-        .catch((erro) => {
-
-            if (erro.response.status === 401) {
-                router.push('/');
-            };
-
-        })
-    return {
-      props: {
-        resAlunos: alunos
-      },
-    };
-  }

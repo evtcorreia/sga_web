@@ -4,7 +4,27 @@ export default function getMenuSecretaria(){
         {
             "nome": "Inicio",
             "link": "/home"
-        }
+        },
+   /*      {
+            "nome": "Alunos",
+            "link": "/alunos"
+        },  */
+        {
+            "nome" : "Turmas",
+            "link": "/turmas/turmas-por-professor"
+        },
+     /*    {
+            "nome" : "Sala de Aula",
+            "link": "/salas-de-aula"
+        },  */ 
+        {
+            "nome" : "Relatórios",
+            "link": "/relatorios"
+        }, 
+      /*   {
+            "nome" : "Documentos",
+            "link": "/documentos"
+        } */
     ]
     return menu;
 

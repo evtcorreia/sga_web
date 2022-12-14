@@ -8,19 +8,7 @@ import InfoAlunoComponent from "../../../src/components/alunos/info";
 import BoxNome from "../../../src/components/alunos/boxNomeAluno";
 import BoxFuncoes from "../../../src/components/boxFuncoes";
 
-/* export async function getStaticProps(){
-  
 
-  const res = await fetch(`${url}v1/aluno/1`);
-  const data = await res.json()
-  console.log(data);
-  return {
-    props:{
-      data:data
-    }
-  }
-  
-} */ 
 
 export default function InfoAluno(){
 
@@ -42,6 +30,7 @@ export default function InfoAluno(){
     const [complemento, setComplemento] = useState('');
     const [identificadorTurma, setIdentificadorTurma] = useState('')
     const [serie, setSerie] = useState('')
+    const [matricula, setMatricula] = useState('')
 
 
 
@@ -53,7 +42,8 @@ export default function InfoAluno(){
       numero: numero,
       complemento: complemento,
       identificadorTurma: identificadorTurma,
-      serie:serie
+      serie:serie,
+      matricula:matricula
     }
    
 useEffect( ()=>{
@@ -68,7 +58,8 @@ async function consulta(){
   const id =  router.query.info 
   const res =  await fetch(`${url}v1/aluno/${id}`);
   const data = await  res.json()
-  console.log(data);
+
+
  // setTimeout(()=>{
 
     setNome(data.Pessoa.nome),
@@ -80,6 +71,7 @@ async function consulta(){
 
     setIdentificadorTurma(data.Matricula.Turma.identificador)
     setSerie(data.Matricula.Turma.Series.serie)
+    setMatricula(data.Matricula)
    
 
 

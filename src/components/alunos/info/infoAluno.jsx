@@ -35,7 +35,7 @@ export default function InfoAlunoComponent({ aluno }) {
 
     //const [alunoRes, setAlunoRes] = React.useState()
 
-    //console.log(alunoRes);
+   
 
     /* 
     React.useEffect(() => {     
@@ -61,7 +61,7 @@ export default function InfoAlunoComponent({ aluno }) {
   
 }, "10000") */
 
-//console.log(alunoRes.Pessoa.nome)
+
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -89,7 +89,7 @@ export default function InfoAlunoComponent({ aluno }) {
 
                     <Box>
 
-                    {console.log("alunoRe")}
+               
                         Nome Completo: {aluno.nome}
                         
                     </Box>
@@ -112,7 +112,7 @@ export default function InfoAlunoComponent({ aluno }) {
 
                     <Box>
 
-                    {console.log("alunoRe")}
+                  
                        Rua: {aluno.logradouro}
                         
                     </Box>
@@ -132,7 +132,7 @@ export default function InfoAlunoComponent({ aluno }) {
 
                     <Box>
 
-                    {console.log("alunoRe")}
+                   
                        Bairro: {aluno.bairro}
                         
                     </Box>
@@ -156,7 +156,7 @@ export default function InfoAlunoComponent({ aluno }) {
 
                     <Box>
 
-                    {console.log("alunoRe")}
+                    
                         Nome Completo: {aluno.nome}
                         
                     </Box>

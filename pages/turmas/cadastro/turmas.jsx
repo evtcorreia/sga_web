@@ -1,37 +1,33 @@
-import React, {useState} from 'react'
-import FormularioMatricula from '../../../src/components/alunos/formularioMatricula'
-import Menu from '../../../src/components/menu-lateral'
+import { useEffect, useState } from "react";
+import Menu from "../../../src/components/menu-lateral";
+import HomeComponent from "../../../src/components/home";
 import { Container, Input, Button, Box } from '@mui/material';
-import { useEffect } from 'react';
-import axios from 'axios';
+import CadastraTurmasComponent from "../../../src/components/turmas/cadastroTurma";
+
+
 
 import nookies from 'nookies'
-
+import axios from 'axios';
 import {useRouter} from "next/router";
 
+export default function Turmas(){
 
+ 
+    
 
-export default function Formulario(){
-
-
-    const [anoLetivo, setAnoLetivo] = useState([])
-
-    const [turma, setTurma] = useState([])
+    const [serie, setSerie] = useState([])
+    const [sala, setSala] = useState([])
 
     const TOKEN = nookies.get('TOKEN_IRIS_CLIENT')
 
     const TOKEN_IRIS_CLIENT = TOKEN.TOKEN_IRIS_CLIENT
 
     const url = process.env.URL_PRODUCAO
-
-    const router = useRouter(); 
-
-    const aluno = router.query.formulario
-
-
+    
     useEffect(()=>{
 
-        axios.get(`${url}v1/ano-letivo/listar`, {
+
+        axios.get(`${url}v1/series`, {
             headers: {
 
                 'Authorization': TOKEN_IRIS_CLIENT
@@ -39,7 +35,7 @@ export default function Formulario(){
         })
             .then(res => {
 
-                setAnoLetivo(res.data)
+                setSerie(res.data)
             })
             .catch((erro) => {
 
@@ -49,7 +45,9 @@ export default function Formulario(){
 
             })
 
-            axios.get(`${url}v1/turmas`, {
+
+
+            axios.get(`${url}v1/salas`, {
                 headers: {
     
                     'Authorization': TOKEN_IRIS_CLIENT
@@ -57,7 +55,7 @@ export default function Formulario(){
             })
                 .then(res => {
     
-                    setTurma(res.data)
+                    setSala(res.data)
                 })
                 .catch((erro) => {
     
@@ -66,14 +64,16 @@ export default function Formulario(){
                     };
     
                 })
-    
+
+
+
 
 
     },[])
-
     
 
     return(
+
         <Box sx={
             {
                 display:'flex',
@@ -81,10 +81,12 @@ export default function Formulario(){
             }
         }>
 
-        <Menu/>
-        <FormularioMatricula anoLetivo= {anoLetivo} turmas= {turma} aluno={aluno}/>
-        
+            <Menu />
+
+            <CadastraTurmasComponent series = {serie} salas = {sala}/>
+            
+
+
         </Box>
-        
     )
 }

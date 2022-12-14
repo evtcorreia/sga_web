@@ -20,7 +20,7 @@ export default function ListaAlunos({ alunos }) {
 
     const router = useRouter()
 
-    console.log(alunos);
+   
 
     return (
         <Box

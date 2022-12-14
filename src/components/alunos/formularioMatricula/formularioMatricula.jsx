@@ -27,9 +27,9 @@ export default function FormularioMatricula({ anoLetivo, turmas, aluno }) {
 
     function matriculaAluno() {
 
-        console.log(TOKEN_IRIS_CLIENT);
+        
 
-        console.log(ano);
+        
 
 
          var postData = {
@@ -54,7 +54,7 @@ export default function FormularioMatricula({ anoLetivo, turmas, aluno }) {
             })
             .catch((err) => {
                 console.log("AXIOS ERROR coletado: ", err);
-                console.log('deu errado');
+        
             })
  
 
@@ -98,7 +98,7 @@ export default function FormularioMatricula({ anoLetivo, turmas, aluno }) {
 
 
                             setAno(e.target.value)                            
-                            console.log(ano);
+                       
                            
                             
                             
@@ -129,7 +129,7 @@ export default function FormularioMatricula({ anoLetivo, turmas, aluno }) {
 
 
                             setTurma(e.target.value)                            
-                            console.log(turma);
+                         
                            
                             
                             
@@ -139,7 +139,7 @@ export default function FormularioMatricula({ anoLetivo, turmas, aluno }) {
                     >
                         {turmas.map((item, idx) => {
 
-                            console.log(item);
+                           
 
                             return <MenuItem key={idx} value={item.id}>{item.Series.serie}º{item.identificador}</MenuItem>
                             
