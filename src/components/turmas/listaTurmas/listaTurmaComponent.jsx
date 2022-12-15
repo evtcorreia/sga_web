@@ -17,7 +17,7 @@ import  jwt  from "jsonwebtoken";
 
 export default function ListaTurmasComponent({ turmas }) {
 
-    const [autorizacao, setAutorizacao] = useState(0)
+    const [autorizacao, setAutorizacao] = useState({})
 
     const [salas, setSalas] = useState([])
 
