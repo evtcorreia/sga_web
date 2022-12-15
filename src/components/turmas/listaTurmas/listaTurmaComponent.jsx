@@ -17,6 +17,8 @@ import  jwt  from "jsonwebtoken";
 
 export default function ListaTurmasComponent({ turmas }) {
 
+    const [autorizacao, setAutoricacao] = useState(0)
+
     const [salas, setSalas] = useState([])
 
     const TOKEN = nookies.get('TOKEN_IRIS_CLIENT')
@@ -28,7 +30,7 @@ export default function ListaTurmasComponent({ turmas }) {
     const router = useRouter();
 
     const chaveDecodificada = jwt.decode(TOKEN_IRIS_CLIENT);
-
+    setAutoricacao(chaveDecodificada.autorizacao)
 
     return (
 
@@ -80,7 +82,7 @@ export default function ListaTurmasComponent({ turmas }) {
                 }
             }>
 
-                {chaveDecodificada.autorizacao === 1 ?
+                {autorizacao === 1 ?
 
                     <Button
                         onClick={() => {
