@@ -17,7 +17,7 @@ import  jwt  from "jsonwebtoken";
 
 export default function ListaTurmasComponent({ turmas }) {
 
-    const [autorizacao, setAutoricacao] = useState(0)
+    const [autorizacao, setAutorizacao] = useState(0)
 
     const [salas, setSalas] = useState([])
 
@@ -30,7 +30,7 @@ export default function ListaTurmasComponent({ turmas }) {
     const router = useRouter();
 
     const chaveDecodificada = jwt.decode(TOKEN_IRIS_CLIENT);
-    setAutoricacao(chaveDecodificada.autorizacao)
+    setAutorizacao(chaveDecodificada)
 
     return (
 
