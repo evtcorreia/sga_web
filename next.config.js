@@ -4,8 +4,8 @@ const nextConfig = {
   swcMinify: true,
 
   env: {
-    //URL_PRODUCAO:"https://iris-api.connectasoft.com.br/",
-    URL_PRODUCAO:"http://localhost:3050/"
+    URL_PRODUCAO:"https://sga-api.connectasoft.com.br/",
+    //URL_PRODUCAO:"http://localhost:3050/"
  },
 }
 
