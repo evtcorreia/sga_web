@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from 'react';
 import nookies from 'nookies'
 import axios from 'axios';
@@ -13,25 +12,15 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import Link from 'next/link';
 
-import  jwt  from "jsonwebtoken";
 
-export default function ListaTurmasComponent({ turmas }) {
+export default function ListaProfessoresComponent({ professores }) {
 
-    const [salas, setSalas] = useState([])
 
-    const TOKEN = nookies.get('TOKEN_IRIS_CLIENT')
+    const router = useRouter()
 
-    const TOKEN_IRIS_CLIENT = TOKEN.TOKEN_IRIS_CLIENT
-
-    const url = process.env.URL_PRODUCAO
-
-    const router = useRouter();
-
-    const chaveDecodificada = jwt.decode(TOKEN_IRIS_CLIENT);
-
+   
 
     return (
-
         <Box
 
 
@@ -56,7 +45,7 @@ export default function ListaTurmasComponent({ turmas }) {
                     {
                         color: "#002F78"
                     }
-                }>Turmas</Typography>
+                }>PROFESSORES</Typography>
             </Box>
             <Box
 
@@ -79,32 +68,20 @@ export default function ListaTurmasComponent({ turmas }) {
 
                 }
             }>
+                <Button
+                    onClick={() => {
+                        router.push('/professores/cadastra');
+                    }}
 
-                {chaveDecodificada.autorizacao === 1 ?
+                    sx={
+                        {
+                            background: '#002F78',
+                            color: "#ffffff",
+                            marginLeft: "2vw",
+                            marginTop: "2vh"
 
-                    <Button
-                        onClick={() => {
-                            router.push('/turmas/cadastro');
-                        }}
-
-                        sx={
-                            {
-                                background: '#002F78',
-                                color: "#ffffff",
-                                marginLeft: "2vw",
-                                marginTop: "2vh"
-
-                            }
-                        }>NOVA TURMA</Button>
-
-                    :
-
-                    ""
-
-
-
-                }
-
+                        }
+                    }>NOVO PROFESSOR</Button>
             </Box>
 
             <Box sx={
@@ -130,7 +107,10 @@ export default function ListaTurmasComponent({ turmas }) {
                                 border: 'none'
                             }
                         }>
-                            {turmas.map((row, key) => (
+
+                            {professores.map((row, key) => (
+
+
                                 <TableRow
                                     key={key}
                                     sx={
@@ -147,28 +127,38 @@ export default function ListaTurmasComponent({ turmas }) {
                                         {
                                             border: 'none'
                                         }
-                                    }>
+                                    }>                                        
 
-                                        {row.Series.serie}º {row.identificador}
+
+                                            <Link href={"/professores/info/" + row.id}><Button sx={
+                                                {
+                                                    //background:'#002F78',
+                                                    color: '#002F78'
+                                                }
+                                            }>
+
+                                                {row.Pessoa.nome}{row.Pessoa.sobrenome}
+
+                                            </Button></Link>
+
+                                        
+
+
 
                                     </TableCell>
                                     <TableCell align="left" sx={
                                         {
                                             border: 'none'
                                         }
+
                                     }>
+
 
 
                                     </TableCell>
 
-                                    {<Link href={"/salas-de-aula/alunos-por-sala/" + row.id}><Button sx={
-                                        {
-                                            background: '#002F78',
-                                            color: '#ffffff'
-                                        }
-                                    }>Entrar na sala</Button></Link>}
 
-
+                                  
                                 </TableRow >
                             ))}
                         </TableBody>

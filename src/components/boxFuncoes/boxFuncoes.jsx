@@ -48,7 +48,7 @@ export default function BoxFuncoes({ aluno }) {
                 marginTop:"3vw",
                 width: "80vw", 
                 height: "20vh", 
-                background: "#d3d3d3",
+                background: "#EEF1F5",
               
             }}>
 
@@ -62,7 +62,7 @@ export default function BoxFuncoes({ aluno }) {
                 display:"flex",
                 width: "80vw", 
                 height: "15vh", 
-                background: "#d3d3d3",
+                background: "#EEF1F5",
                 flexDirection: "row",
                 alignItems: "center"
             }}>

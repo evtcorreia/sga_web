@@ -141,7 +141,7 @@ onSubmit={(e) => {
                     
                     {
                         
-                        borderColor:'#d3d3d3',
+                        borderColor:'#EEF1F5',
                         padding: 2,
                         display:'flex',
                         justifyContent:'space-around',

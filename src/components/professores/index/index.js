@@ -1,0 +1,2 @@
+import ListaProfessoresComponent from "./listaProfessoresComponent";
+export default ListaProfessoresComponent

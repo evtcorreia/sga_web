@@ -1,7 +1,7 @@
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 
-export default function BoxNome({ aluno }) {
+export default function BoxNomeProfessor({ professor }) {
 
     return (
 
@@ -16,7 +16,7 @@ export default function BoxNome({ aluno }) {
                 alignItems: "center"
             }}>
             <Typography variant="h4" component="h2" sx={{color:"#000000"}} >
-                {aluno.nome}
+                {professor.nome}
             </Typography>
         </Box>
     )

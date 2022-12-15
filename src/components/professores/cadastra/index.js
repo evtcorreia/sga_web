@@ -1,0 +1,2 @@
+import FormularioNovoProfesssor from "./formularioCadastraProfessor";
+export default FormularioNovoProfesssor
