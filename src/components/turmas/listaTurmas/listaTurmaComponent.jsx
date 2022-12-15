@@ -30,7 +30,7 @@ export default function ListaTurmasComponent({ turmas }) {
     const router = useRouter();
 
     const chaveDecodificada = jwt.decode(TOKEN_IRIS_CLIENT);
-    setAutorizacao(chaveDecodificada)
+    setAutorizacao(chaveDecodificada.autorizacao)
 
     return (
 
