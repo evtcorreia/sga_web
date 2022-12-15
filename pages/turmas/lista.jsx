@@ -1,11 +1,11 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import Menu from "../../../src/components/menu-lateral";
+import Menu from "../../src/components/menu-lateral";
 import { Container, Input, Button, Box } from '@mui/material';
 import axios from 'axios';
 import nookies from 'nookies'
 import {useRouter} from "next/router";
-import ListaTurmasComponent from "../../../src/components/turmas/listaTurmas";
+import ListaTurmasComponent from "../../src/components/turmas/listaTurmas";
 
 export default function ListaTurmas(){
 
