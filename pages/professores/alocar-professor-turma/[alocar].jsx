@@ -2,7 +2,7 @@ import React,{useState, useEffect} from 'react'
 import nookies from 'nookies'
 import axios from 'axios';
 import {useRouter} from "next/router";
-import { Container, Input, Button, Box } from '@mui/material';
+import {  Box } from '@mui/material';
 import Menu from "../../../src/components/menu-lateral";
 import FormularioAlocarProfessor from '../../../src/components/professores/alocarProfessor';
 
