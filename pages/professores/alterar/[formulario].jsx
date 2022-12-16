@@ -10,7 +10,7 @@ import FormularioAlteracaoProfessor from "../../../src/components/professores/Al
 
 
 
-export default function FormularioAlterarProfessor(){
+export default function FormAlteraProfessor(){
     
     const TOKEN = nookies.get('TOKEN_IRIS_CLIENT')
     

@@ -1,2 +1,2 @@
-import FormularioMudarAluno from "./formulario";
+import FormularioMudarAluno from "./[formulario]";
 export default FormularioMudarAluno
