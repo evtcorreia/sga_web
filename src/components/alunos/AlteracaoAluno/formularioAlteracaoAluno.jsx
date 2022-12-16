@@ -3,33 +3,45 @@ import nookies from 'nookies'
 import axios from 'axios';
 
 import { Container, Input, Button, Box, FormControl, InputLabel, FormHelperText, Typography } from '@mui/material';
-import Router from 'next/router';
+import { useEffect } from 'react';
 
-export default function FormularioNovoProfesssor() {
+export default function FormularioAlteracaoAluno({aluno, id}) {
 
+    const [nome, setNome] = useState(aluno.nome)
+    const [cpf, setCpf] = useState(aluno.cpf)
+    const [nascimento, set_dtNascimento] = useState(aluno.nascimento)
+    const [rua, setRua] = useState(aluno.rua)
+    const [bairro, setBairro] = useState(aluno.bairro)
+    const [numero, setNumero] = useState(aluno.numero)
+    const [complemento, setComplemento] = useState(aluno.complemeto)
+    const [municipio, setMunicipio] = useState(aluno.municipio)
 
-
-    const [nome, setNome] = useState()
-    const [cpf, setCpf] = useState()
-    const [nascimento, setNascimento] = useState()
-    const [rua, setRua] = useState()
-    const [bairro, setBairro] = useState()
-    const [numero, setNumero] = useState()
-    const [complemento, setComplemento] = useState()
-    const [municipio, setMunicipio] = useState()
-    const [masp, setMasp] = useState()
-    const [usuario, setUsuario] = useState()
-    const [senha, setSenha] = useState()
+    
 
     const TOKEN = nookies.get('TOKEN_IRIS_CLIENT')
 
     const TOKEN_IRIS_CLIENT = TOKEN.TOKEN_IRIS_CLIENT
 
     const url = process.env.URL_PRODUCAO
+console.log('xxxxxxxxxx');
+console.log(aluno.id);
+console.log('xxxxxxxxxx');
 
 
+useEffect(()=>{
 
-    function gravaProfessor(){
+
+            setNome(aluno.nome),
+            set_dtNascimento(aluno.dt_nascimento),
+            setBairro(aluno.bairro),
+            setRua(aluno.logradouro),
+            setNumero(aluno.numero),
+            setComplemento(aluno.complemento)
+            setCpf(aluno.cpf)
+  
+},[aluno])
+
+    function alteraAluno(){
 
        
         
@@ -42,10 +54,7 @@ export default function FormularioNovoProfesssor() {
             bairro:bairro,
             numero:numero,
             complemento:complemento,
-            municipio:1,
-            masp: masp,
-            login:usuario,
-            senha:senha
+            municipio:1
           };
           
           let axiosConfig = {
@@ -56,10 +65,9 @@ export default function FormularioNovoProfesssor() {
             }
           };
           
-          axios.post(`${url}v1/professor/matricular`, postData, axiosConfig)
+          axios.put(`${url}v1/aluno/alterar/${aluno.id}`, postData, axiosConfig)
           .then((res) => {
             console.log("RESPONSE RECEIVED: ", res);
-            Router.push('/professores/index')
           })
           .catch((err) => {
             console.log("AXIOS ERROR coletado: ", err);
@@ -85,20 +93,20 @@ export default function FormularioNovoProfesssor() {
         >
 
 
-            <Typography sx={{marginTop:"5vh",color:"#000000"}}>CADASTRO DE PROFESSOR</Typography>
+            <Typography sx={{marginTop:"5vh",color:"#000000"}}>CADASTRO DE ALUNOS</Typography>
 
             <form 
                 onSubmit={(e)=>{
 
                     e.preventDefault()
                     
-                    gravaProfessor()
+                    alteraAluno()
                 }}
             >
                 
 
             <FormControl
-            required={true}
+                
                 fullWidth
                 sx={{
                     marginTop:"2vh"
@@ -116,7 +124,6 @@ export default function FormularioNovoProfesssor() {
             </FormControl>
 
             <FormControl
-             required={true}
                 fullWidth
                 sx={{
                     marginTop:"4vh"
@@ -135,7 +142,6 @@ export default function FormularioNovoProfesssor() {
             </FormControl>
 
             <FormControl
-             required={true}
                 fullWidth
                 sx={{
                     marginTop:"4vh"
@@ -144,7 +150,7 @@ export default function FormularioNovoProfesssor() {
                 <InputLabel 
                 
                 
-                htmlFor="my-input">Data de Nascimento</InputLabel>
+                htmlFor="my-input"></InputLabel>
                 <Input
                     type='date'
                      onChange={(e)=>{
@@ -156,7 +162,6 @@ export default function FormularioNovoProfesssor() {
             </FormControl>
 
             <FormControl
-             required={true}
                 fullWidth
                 sx={{
                     marginTop:"4vh"
@@ -172,7 +177,6 @@ export default function FormularioNovoProfesssor() {
                 {/* <FormHelperText id="my-helper-text">We'll never share your email.</FormHelperText> */}
             </FormControl>
             <FormControl
-             required={true}
                 fullWidth
                 sx={{
                     marginTop:"4vh"
@@ -189,7 +193,6 @@ export default function FormularioNovoProfesssor() {
                 {/* <FormHelperText id="my-helper-text">We'll never share your email.</FormHelperText> */}
             </FormControl>
             <FormControl
-             required={true}
                 fullWidth
                 sx={{
                     marginTop:"4vh"
@@ -205,7 +208,6 @@ export default function FormularioNovoProfesssor() {
                 {/* <FormHelperText id="my-helper-text">We'll never share your email.</FormHelperText> */}
             </FormControl>
             <FormControl
-             required={true}
                 fullWidth
                 sx={{
                     marginTop:"4vh"
@@ -220,8 +222,7 @@ export default function FormularioNovoProfesssor() {
                 id="my-input" aria-describedby="my-helper-text" />
                 {/* <FormHelperText id="my-helper-text">We'll never share your email.</FormHelperText> */}
             </FormControl>
-           {/*  <FormControl
-             required={true}
+            <FormControl
                 fullWidth
                 sx={{
                     marginTop:"4vh"
@@ -233,57 +234,6 @@ export default function FormularioNovoProfesssor() {
                         setMunicipio(e.target.value)
                     }}
                     value={municipio}
-                id="my-input" aria-describedby="my-helper-text" /> */}
-                {/* <FormHelperText id="my-helper-text">We'll never share your email.</FormHelperText> */}
-            {/* </FormControl> */}
-
-            <FormControl
-             required={true}
-                fullWidth
-                sx={{
-                    marginTop:"4vh"
-                }}
-            >
-                <InputLabel htmlFor="my-input">MASP</InputLabel>
-                <Input 
-                     onChange={(e)=>{
-                        setMasp(e.target.value)
-                    }}
-                    value={masp}
-                id="my-input" aria-describedby="my-helper-text" />
-                {/* <FormHelperText id="my-helper-text">We'll never share your email.</FormHelperText> */}
-            </FormControl>
-
-            <FormControl
-             required={true}
-                fullWidth
-                sx={{
-                    marginTop:"4vh"
-                }}
-            >
-                <InputLabel htmlFor="my-input">Usuario</InputLabel>
-                <Input 
-                     onChange={(e)=>{
-                        setUsuario(e.target.value)
-                    }}
-                    value={usuario}
-                id="my-input" aria-describedby="my-helper-text" />
-                {/* <FormHelperText id="my-helper-text">We'll never share your email.</FormHelperText> */}
-            </FormControl>
-
-            <FormControl
-             required={true}
-                fullWidth
-                sx={{
-                    marginTop:"4vh"
-                }}
-            >
-                <InputLabel htmlFor="my-input">Senha</InputLabel>
-                <Input 
-                     onChange={(e)=>{
-                        setSenha(e.target.value)
-                    }}
-                    value={senha}
                 id="my-input" aria-describedby="my-helper-text" />
                 {/* <FormHelperText id="my-helper-text">We'll never share your email.</FormHelperText> */}
             </FormControl>

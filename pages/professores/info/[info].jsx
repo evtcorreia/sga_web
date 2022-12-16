@@ -50,13 +50,15 @@ export default function InfoProfessor() {
         consulta()
 
 
-    }, [])
+    }, [professor])
 
     async function consulta() {
 
         const id = router.query.info
         const res = await fetch(`${url}v1/professor/${id}`);
         const data = await res.json()
+
+        console.log(res);
 
        
 

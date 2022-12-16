@@ -1,0 +1,2 @@
+import FormularioAlteracaoProfessor from "./formularioAlteracaoAluno";
+export default FormularioAlteracaoProfessor

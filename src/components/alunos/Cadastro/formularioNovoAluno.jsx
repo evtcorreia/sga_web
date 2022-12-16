@@ -90,6 +90,7 @@ export default function FormularioNovoAluno() {
                 
 
             <FormControl
+            required={true}
                 fullWidth
                 sx={{
                     marginTop:"2vh"
@@ -107,6 +108,7 @@ export default function FormularioNovoAluno() {
             </FormControl>
 
             <FormControl
+            required={true}
                 fullWidth
                 sx={{
                     marginTop:"4vh"
@@ -125,6 +127,7 @@ export default function FormularioNovoAluno() {
             </FormControl>
 
             <FormControl
+            required={true}
                 fullWidth
                 sx={{
                     marginTop:"4vh"
@@ -145,6 +148,7 @@ export default function FormularioNovoAluno() {
             </FormControl>
 
             <FormControl
+            required={true}
                 fullWidth
                 sx={{
                     marginTop:"4vh"
@@ -160,6 +164,7 @@ export default function FormularioNovoAluno() {
                 {/* <FormHelperText id="my-helper-text">We'll never share your email.</FormHelperText> */}
             </FormControl>
             <FormControl
+            required={true}
                 fullWidth
                 sx={{
                     marginTop:"4vh"
@@ -176,6 +181,7 @@ export default function FormularioNovoAluno() {
                 {/* <FormHelperText id="my-helper-text">We'll never share your email.</FormHelperText> */}
             </FormControl>
             <FormControl
+            required={true}
                 fullWidth
                 sx={{
                     marginTop:"4vh"
@@ -191,6 +197,7 @@ export default function FormularioNovoAluno() {
                 {/* <FormHelperText id="my-helper-text">We'll never share your email.</FormHelperText> */}
             </FormControl>
             <FormControl
+            required={true}
                 fullWidth
                 sx={{
                     marginTop:"4vh"
@@ -205,7 +212,7 @@ export default function FormularioNovoAluno() {
                 id="my-input" aria-describedby="my-helper-text" />
                 {/* <FormHelperText id="my-helper-text">We'll never share your email.</FormHelperText> */}
             </FormControl>
-            <FormControl
+           {/*  <FormControl
                 fullWidth
                 sx={{
                     marginTop:"4vh"
@@ -216,10 +223,10 @@ export default function FormularioNovoAluno() {
                      onChange={(e)=>{
                         setMunicipio(e.target.value)
                     }}
-                    value={municipio}
-                id="my-input" aria-describedby="my-helper-text" />
+                    value={municipio} */}
+              {/*   id="my-input" aria-describedby="my-helper-text" /> */}
                 {/* <FormHelperText id="my-helper-text">We'll never share your email.</FormHelperText> */}
-            </FormControl>
+            {/* </FormControl> */}
 
             <Button type='submit' sx={{marginTop:"2vh", background:"#002F78", color:"#ffffff"}} fullWidth>CADASTRAR</Button>
             </form>

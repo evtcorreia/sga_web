@@ -31,6 +31,7 @@ export default function InfoAluno(){
     const [identificadorTurma, setIdentificadorTurma] = useState('')
     const [serie, setSerie] = useState('')
     const [matricula, setMatricula] = useState('')
+    const [id, setId] = useState('')
 
 
 
@@ -43,7 +44,8 @@ export default function InfoAluno(){
       complemento: complemento,
       identificadorTurma: identificadorTurma,
       serie:serie,
-      matricula:matricula
+      matricula:matricula,
+      id:id
     }
    
 useEffect( ()=>{
@@ -59,7 +61,7 @@ async function consulta(){
   const res =  await fetch(`${url}v1/aluno/${id}`);
   const data = await  res.json()
 
-
+  console.log(data);
  // setTimeout(()=>{
 
     setNome(data.Pessoa.nome),
@@ -72,6 +74,7 @@ async function consulta(){
     setIdentificadorTurma(data.Matricula.Turma.identificador)
     setSerie(data.Matricula.Turma.Series.serie)
     setMatricula(data.Matricula)
+    setId(id)
    
 
 

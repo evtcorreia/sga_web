@@ -87,6 +87,23 @@ export default function BoxFuncoesProfessor({ professor }) {
                         Alocar Professor
                     </Button>
                 </Link>
+                <Link href={`/professores/alterar/${professor.id}`}>
+                <Button
+                    
+                    sx={
+                        {
+                            background: '#002F78',
+                            color: '#ffffff',
+                            marginLeft: "4vh"
+                        }
+                    }>
+
+                    Alterar Professor
+                </Button>
+
+                        </Link>
+
+               {/*  */}
 
 
 
