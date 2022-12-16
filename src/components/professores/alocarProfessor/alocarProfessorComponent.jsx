@@ -6,6 +6,7 @@ import axios from 'axios';
 import { Container, Input, Button, Box, FormControl, InputLabel, FormHelperText, Typography } from '@mui/material';
 import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
+import Router from 'next/router';
 
 
 
@@ -47,9 +48,11 @@ export default function FormularioAlocarProfessor({ turmas, professor }) {
         axios.post(`${url}v1/professor/alocar/${professor}`, postData, axiosConfig)
             .then((res) => {
                 console.log("RESPONSE RECEIVED: ", res);
+                Router.push('/professores/index')
             })
             .catch((err) => {
                 console.log("AXIOS ERROR coletado: ", err);
+                Router.push('/')
         
             })
  

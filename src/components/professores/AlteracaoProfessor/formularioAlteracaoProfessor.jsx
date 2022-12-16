@@ -4,6 +4,7 @@ import axios from 'axios';
 
 import { Container, Input, Button, Box, FormControl, InputLabel, FormHelperText, Typography } from '@mui/material';
 import { useEffect } from 'react';
+import Router from 'next/router';
 
 export default function FormularioAlteracaoProfessor({aluno, id}) {
 
@@ -68,9 +69,11 @@ useEffect(()=>{
           axios.put(`${url}/v1/professor/alterar/${aluno.id}`, postData, axiosConfig)
           .then((res) => {
             console.log("RESPONSE RECEIVED: ", res);
+            Router.push('/professores/index')
           })
           .catch((err) => {
             console.log("AXIOS ERROR coletado: ", err);
+            Router.push('/')
             
           })
 

@@ -1,6 +1,7 @@
 import React, {useState}  from 'react'
 import nookies from 'nookies'
 import axios from 'axios';
+import Router from 'next/router';
 
 import { Container, Input, Button, Box, FormControl, InputLabel, FormHelperText, Typography } from '@mui/material';
 
@@ -52,9 +53,11 @@ export default function FormularioNovoAluno() {
           axios.post(`${url}v1/alunos/matricular`, postData, axiosConfig)
           .then((res) => {
             console.log("RESPONSE RECEIVED: ", res);
+            Router.push('/alunos')
           })
           .catch((err) => {
             console.log("AXIOS ERROR coletado: ", err);
+            Router.push('/')
             
           })
 

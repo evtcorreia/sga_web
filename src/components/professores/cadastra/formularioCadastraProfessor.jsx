@@ -62,7 +62,7 @@ export default function FormularioNovoProfesssor() {
             Router.push('/professores/index')
           })
           .catch((err) => {
-            console.log("AXIOS ERROR coletado: ", err);
+            Router.push('/')
             
           })
 

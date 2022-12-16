@@ -6,6 +6,7 @@ import axios from 'axios';
 import { Container, Input, Button, Box, FormControl, InputLabel, FormHelperText, Typography } from '@mui/material';
 import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
+import Router from 'next/router';
 
 
 
@@ -51,9 +52,12 @@ export default function FormularioMatricula({ anoLetivo, turmas, aluno }) {
         axios.post(`${url}v1/aluno/alocar/${aluno}`, postData, axiosConfig)
             .then((res) => {
                 console.log("RESPONSE RECEIVED: ", res);
+
+                Router.push('/aluno')
             })
             .catch((err) => {
                 console.log("AXIOS ERROR coletado: ", err);
+                Router.push('/')
         
             })
  

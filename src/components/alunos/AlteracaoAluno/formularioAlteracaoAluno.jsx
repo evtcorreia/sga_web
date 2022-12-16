@@ -1,6 +1,7 @@
 import React, {useState}  from 'react'
 import nookies from 'nookies'
 import axios from 'axios';
+import Router from 'next/router';
 
 import { Container, Input, Button, Box, FormControl, InputLabel, FormHelperText, Typography } from '@mui/material';
 import { useEffect } from 'react';
@@ -68,9 +69,11 @@ useEffect(()=>{
           axios.put(`${url}v1/aluno/alterar/${aluno.id}`, postData, axiosConfig)
           .then((res) => {
             console.log("RESPONSE RECEIVED: ", res);
+            Router.push('/alunos')
           })
           .catch((err) => {
             console.log("AXIOS ERROR coletado: ", err);
+            Router.push('/')
             
           })
 
