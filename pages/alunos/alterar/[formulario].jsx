@@ -1,15 +1,15 @@
 import { Box } from "@mui/material";
 import { useEffect, useState } from "react";
 import Menu from "../../../src/components/menu-lateral";
+import FormularioAlteracaoAluno from "../../../src/components/alunos/AlteracaoAluno";
 
 
 import nookies from 'nookies'
 import axios from 'axios';
 import {useRouter} from "next/router";
-import FormularioAlteracaoAluno from "../../../src/components/alunos/AlteracaoAluno";
 
 
-export default function FormularioAlterarAluno(){
+export default function FormularioMudarAluno(){
     
     const TOKEN = nookies.get('TOKEN_IRIS_CLIENT')
     
