@@ -111,7 +111,7 @@ export default function BoxFuncoes({ aluno }) {
                             <Button variant="text" sx={{ background: "#002F78", color: "#ffffff", marginLeft: "4vh" }}> FINALIZAR MATRICULA</Button>
                 }
 
-                <Link href={`/alunos/alterar/${aluno.id}`}>
+               {/*  <Link href={`/alunos/alterar/${aluno.id}`}> */}
                 <Button
                     
                     sx={
@@ -125,7 +125,7 @@ export default function BoxFuncoes({ aluno }) {
                     Alterar Aluno
                 </Button>
 
-                        </Link>
+                      {/*   </Link> */}
 
                 <Button
                     onClick={() => {
