@@ -1,2 +1,2 @@
-import FormularioAlteracaoAluno from "./formularioAlteracaoAluno";
-export default FormularioAlteracaoAluno
+import FormularioAlteracaoAlunos from "./formularioAlteracaoAluno";
+export default FormularioAlteracaoAlunos

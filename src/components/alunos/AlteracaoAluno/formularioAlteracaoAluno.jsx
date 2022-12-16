@@ -5,7 +5,7 @@ import axios from 'axios';
 import { Container, Input, Button, Box, FormControl, InputLabel, FormHelperText, Typography } from '@mui/material';
 import { useEffect } from 'react';
 
-export default function FormularioAlteracaoAluno({aluno, id}) {
+export default function FormularioAlteracaoAlunos({aluno, id}) {
 
     const [nome, setNome] = useState(aluno.nome)
     const [cpf, setCpf] = useState(aluno.cpf)
