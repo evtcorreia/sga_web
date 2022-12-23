@@ -99,7 +99,7 @@ export default function BoxFuncoes({ aluno }) {
                 }}>
 
 
-                {
+               {/*  {
 
                     result === 2 ?
                         ""
@@ -109,7 +109,7 @@ export default function BoxFuncoes({ aluno }) {
                             <Button variant="text" sx={{ background: "#002F78", color: "#ffffff", marginLeft: "4vh" }}> NOVA MATRICULA </Button>
                             :
                             <Button variant="text" sx={{ background: "#002F78", color: "#ffffff", marginLeft: "4vh" }}> FINALIZAR MATRICULA</Button>
-                }
+                } */}
 
                 <Link href={`/alunos/alterar/${aluno.id}`}>
                 <Button
